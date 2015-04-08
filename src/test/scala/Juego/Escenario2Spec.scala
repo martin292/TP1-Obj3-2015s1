@@ -32,10 +32,9 @@ class Escenario2Spec extends FlatSpec with Matchers{
       tablero.celdas.filter { c => (c.x == 2) && (c.y == 0) }.head.personajes.+=(a4)
       tablero.celdas.filter { c => (c.x == 2) && (c.y == 2) }.head.personajes.+=(a5)
       
-      a1.opcion = new Colaborador
-      a2.opcion = new Precavido
-      a1.politica = new EvitarProblemas
-      a2.politica = new Reforzar      
+      jugadorA.opcion = new Colaborador
+      jugadorA.politica = new EvitarProblemas
+           
       //----------------------------------------------------------------------------------------------
       
       //Personajes del jugador A----------------------------------------------------------------------
@@ -48,39 +47,36 @@ class Escenario2Spec extends FlatSpec with Matchers{
       tablero.celdas.filter { c => (c.x == 0) && (c.y ==1) }.head.personajes.+=(b1)
       tablero.celdas.filter { c => (c.x == 2) && (c.y == 2) }.head.personajes.+=(b2)
       
-      b1.opcion = new Colaborador
-      b2.opcion = new Colaborador
-      b1.politica = new SegunComoMeSiento
-      b2.politica = new SegunComoMeSiento
+      jugadorB.opcion = new Colaborador
+      jugadorB.politica = new SegunComoMeSiento
+      
       //----------------------------------------------------------------------------------------------
       
     }
   
   
   "Sugerencia A1" should "ser Moverse" in{    
-    var sugerencia = fixture.a1.generarSugerencia()
+    var sugerencia = fixture.jugadorA.generarSugerencia(fixture.a1)
     
     sugerencia.str should be ("Moverse")
     sugerencia.celda.x should be (0)
     sugerencia.celda.y should be (1)
   }
   
-  "Sugerencia A2" should "ser Moverse" in{    
-    var sugerencia = fixture.a2.generarSugerencia()
+  "Sugerencia A2" should "ser Moverse" in{
+    var sugerencia = fixture.jugadorA.generarSugerencia(fixture.a2)
     
-    sugerencia.str should be ("Moverse")
-    sugerencia.celda.x should be (3)
-    sugerencia.celda.y should be (1)
+    sugerencia.str should be ("Quedarse en el lugar")
   }
   
   "Sugerencia B1" should "ser Moverse" in{    
-    var sugerencia = fixture.b1.generarSugerencia()
+    var sugerencia = fixture.jugadorB.generarSugerencia(fixture.b1)
     
     sugerencia.str should be ("Moverse")
   }
   
   "Sugerencia B2" should "ser Moverse" in{    
-    var sugerencia = fixture.b2.generarSugerencia()
+    var sugerencia = fixture.jugadorB.generarSugerencia(fixture.b2)
     
     sugerencia.str should be ("Moverse")
   }

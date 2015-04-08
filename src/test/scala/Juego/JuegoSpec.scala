@@ -26,12 +26,8 @@ class JuegoSpec extends FlatSpec with Matchers{
       tablero.celdas.filter { c => (c.x == 0) && (c.y == 0) }.head.personajes.+=(a2)
       tablero.celdas.filter { c => (c.x == 2) && (c.y == 0) }.head.personajes.+=(a3)
     
-      a1.opcion = new Pancho
-      a2.opcion = new Pancho
-      a3.opcion = new Pancho
-      a1.politica = new EvitarProblemas
-      a2.politica = new EvitarProblemas
-      a3.politica = new EvitarProblemas
+      jugadorA.opcion = new Pancho
+      jugadorA.politica = new EvitarProblemas
       //----------------------------------------------------------------------------------------------
       
       //Personajes del jugador B----------------------------------------------------------------------
@@ -53,38 +49,34 @@ class JuegoSpec extends FlatSpec with Matchers{
       tablero.celdas.filter { c => (c.x == 0) && (c.y == 1) }.head.personajes.+=(b4)
       tablero.celdas.filter { c => (c.x == 3) && (c.y == 0) }.head.personajes.+=(b5)
       
-      b1.opcion = new Colaborador
-      b4.opcion = new Colaborador
-      b5.opcion = new Colaborador
-      b1.politica = new Atacar
-      b4.politica = new Atacar
-      b5.politica = new Atacar
-      
+      jugadorB.opcion = new Colaborador
+      jugadorB.politica = new Atacar
+            
       //----------------------------------------------------------------------------------------------
       
     }
   
     
-  "Sugerencias A" should "Ser quedarse en el lugar" in{    
-    fixture.a1.generarSugerencia().str should be ("Quedarse en el lugar")
-    fixture.a2.generarSugerencia().str should be ("Quedarse en el lugar")
-    fixture.a3.generarSugerencia().str should be ("Quedarse en el lugar")
+  "Sugerencias A" should "Ser quedarse en el lugar" in{
+    fixture.jugadorA.generarSugerencia(fixture.a1).str should be ("Quedarse en el lugar")
+    fixture.jugadorA.generarSugerencia(fixture.a2).str should be ("Quedarse en el lugar")
+    fixture.jugadorA.generarSugerencia(fixture.a3).str should be ("Quedarse en el lugar")
   }
   
-  "Sugerencia B1" should "ser Quedarse en el lugar" in{    
-    fixture.b1.generarSugerencia().str should be ("Quedarse en el lugar")
+  "Sugerencia B1" should "ser Quedarse en el lugar" in{
+    fixture.jugadorB.generarSugerencia(fixture.b1).str should be ("Quedarse en el lugar")
   }
   
-  "Sugerencia B4" should "ser Moverse" in{    
-    var sug = fixture.b4.generarSugerencia()
+  "Sugerencia B4" should "ser Moverse" in{
+    var suge = fixture.jugadorB.generarSugerencia(fixture.b4)
     
-    sug.str should be ("Moverse")
-    sug.celda.x should be (0)
-    sug.celda.y should be (0)
+    suge.str should be ("Moverse")
+    suge.celda.x should be (0)
+    suge.celda.y should be (0)
   }
   
-  "Sugerencia B5" should "ser Moverse" in{    
-    var sugerencia = fixture.b5.generarSugerencia()
+  "Sugerencia B5" should "ser Moverse" in{
+    var sugerencia = fixture.jugadorB.generarSugerencia(fixture.b5)
     
     sugerencia.str should be ("Moverse")
     sugerencia.celda.x should be (2)
