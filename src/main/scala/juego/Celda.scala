@@ -7,7 +7,6 @@ abstract class Celda extends AumentadorDeExperiencia{
   var x: Int
   var y: Int  
   var vecinas: ListBuffer[Celda]
-  var personajes: ListBuffer[Personaje]
   
   def nombre = "Celda"
   def agregarVecinas(tablero: Tablero)

@@ -7,7 +7,6 @@ class Rectangular extends Celda {
   var x = 0
   var y = 0
   var vecinas = new ListBuffer[Celda]
-  var personajes = new ListBuffer[Personaje]
   
   
   /**

@@ -36,7 +36,7 @@ class AumentoMasivoExperienciaSpec extends FlatSpec with Matchers{
     val aumentador1 = new AumentoMasivoExperiencia(fixture.jugador)
     aumentador1.ejecutar
     
-    aumentador1.seEjecuto should be (true)     
+    aumentador1.seEjecuto should be (true)
     
     fixture.p1.experiencia should be (2)
     fixture.p2.experiencia should be (2)

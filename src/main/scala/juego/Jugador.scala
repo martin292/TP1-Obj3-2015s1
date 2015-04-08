@@ -3,7 +3,6 @@ package juego
 import scala.collection.mutable.ListBuffer
 
 class Jugador extends AumentadorDeExperiencia{
-  val personajes = ListBuffer[Personaje]()
   
   var opcion: Opcion = null
   var politica: Politica = null
