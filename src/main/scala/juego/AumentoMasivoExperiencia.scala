@@ -7,7 +7,7 @@ class AumentoMasivoExperiencia(val sobreQueCosa: AumentadorDeExperiencia){
   def ejecutar{
     if(!seEjecuto){
       sobreQueCosa.aumentarMasivamenteExperiencia   
-      seEjecuto=true
+      seEjecuto = true
     }
   }
 

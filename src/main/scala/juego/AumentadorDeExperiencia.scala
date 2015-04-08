@@ -6,8 +6,11 @@ trait AumentadorDeExperiencia {
 
   var personajes = ListBuffer[Personaje]()
   
+  /**
+   * Aumenta en 2 la experiencia de los personajes cuya energia es >= a 10
+   */
   def aumentarMasivamenteExperiencia(): Unit = {
-    personajes.foreach {p => if(p.energia >= 10){p.experiencia += 2}}
+    this.personajes.foreach {p => if(p.energia >= 10){p.experiencia += 2}}
   }
     
   def nombre(): String

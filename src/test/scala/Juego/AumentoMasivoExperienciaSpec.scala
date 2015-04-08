@@ -8,50 +8,43 @@ class AumentoMasivoExperienciaSpec extends FlatSpec with Matchers{
   def fixture =
     new {
     
-      val jugador = new Jugador
+      var jugador = new Jugador()
+      var celda = new Rectangular()
       
-      val p1 = new Personaje(jugador, 10, 1, 0)
-      val p2 = new Personaje(jugador, 50, 1, 0)
-      val p3 = new Personaje(jugador, 1, 1, 0)
+      var p1 = new Personaje(jugador, 10, 0, 0)
+      var p2 = new Personaje(jugador, 1, 0, 0)
+      var p3 = new Personaje(jugador, 50, 0, 0)
             
       jugador.personajes +=(p1)
       jugador.personajes +=(p2)
       jugador.personajes +=(p3)
       
-      //------------------------------------------------
+      celda.personajes +=(p1)
+      celda.personajes +=(p2)
+      celda.personajes +=(p3)      
       
-      val celda = new Rectangular()
-    
-      val p4 = new Personaje(jugador, 10, 1, 0)
-      val p5 = new Personaje(jugador, 50, 1, 0)
-      val p6 = new Personaje(jugador, 1, 1, 0)
-      
-      celda.personajes +=(p4)
-      celda.personajes +=(p5)
-      celda.personajes +=(p6)
-      
+      var aumentadorJugador = new AumentoMasivoExperiencia(jugador)
+      var aumentadorCelda = new AumentoMasivoExperiencia(celda)
   }
   
-  "Ejecutar1" should "aumentar experiencia de p1 y p2" in{
-    val aumentador1 = new AumentoMasivoExperiencia(fixture.jugador)
-    aumentador1.ejecutar
-    
-    aumentador1.seEjecuto should be (true)
+  "Ejecutar con Jugador" should "aumentar experiencia de p1 y p3" in{
+    fixture.aumentadorJugador.ejecutar
+        
+    fixture.aumentadorJugador.seEjecuto should be (true)
     
     fixture.p1.experiencia should be (2)
-    fixture.p2.experiencia should be (2)
-    fixture.p3.experiencia should be (0)
+    fixture.p2.experiencia should be (0)
+    fixture.p3.experiencia should be (2)
   }
   
-  "Ejecutar2" should "aumentar experiencia de p4 y p5" in{
-    val aumentador2 = new AumentoMasivoExperiencia(fixture.celda)
-    aumentador2.ejecutar
+  "Ejecutar con Celda" should "aumentar experiencia de p1 y p3" in{
+    fixture.aumentadorCelda.ejecutar
+        
+    fixture.aumentadorCelda.seEjecuto should be (true)
     
-    aumentador2.seEjecuto should be (true)
-    
-    fixture.p4.experiencia should be (2)
-    fixture.p5.experiencia should be (2)
-    fixture.p6.experiencia should be (0)
+    fixture.p1.experiencia should be (4)
+    fixture.p2.experiencia should be (0)
+    fixture.p3.experiencia should be (4)
   }
   
   
