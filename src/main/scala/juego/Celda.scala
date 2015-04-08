@@ -2,13 +2,14 @@ package juego
 
 import scala.collection.mutable.ListBuffer
 
-abstract class Celda {
+abstract class Celda extends AumentadorDeExperiencia{
 
   var x: Int
   var y: Int  
   var vecinas: ListBuffer[Celda]
   var personajes: ListBuffer[Personaje]
   
+  def nombre = "Celda"
   def agregarVecinas(tablero: Tablero)
   def contieneEnemigoConMasEnergia(jugador: Jugador, energia: Int): Boolean
   def hayEnemigoConMasEnergia(personaje: Personaje): Boolean

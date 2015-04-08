@@ -1,6 +1,6 @@
 package juego
 
-class Personaje(val jugador: Jugador, val energia: Int, val escudo: Int, val experiencia: Int) { 
+class Personaje(val jugador: Jugador, val energia: Int, val escudo: Int, var experiencia: Int) { 
   
   var celda: Celda = null
   
