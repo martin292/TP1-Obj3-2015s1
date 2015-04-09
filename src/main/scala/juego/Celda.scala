@@ -22,4 +22,5 @@ abstract class Celda extends AumentadorDeExperiencia with TableroDeComando{
   def retCeldaAReforzar(personaje: Personaje): Celda
   def sumarPotencialesDeAtaque(personaje: Personaje): Int
   def sumarAtaque(jugador:Jugador): Int
+  def vecindad(): Vecindad
 }

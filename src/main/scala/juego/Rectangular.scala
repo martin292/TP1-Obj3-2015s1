@@ -8,6 +8,15 @@ class Rectangular extends Celda {
   var y = 0
   var vecinas = new ListBuffer[Celda]
   
+  override def vecindad(): Vecindad = {
+    val vecindad = new Vecindad()
+    
+    vecindad.personajes.appendAll(personajes)
+    vecinas.foreach { c => vecindad.personajes.appendAll(c.personajes) }
+    
+    vecindad
+  }
+  
   
   /**
    * Agrega las celdas vecinas a la lista
