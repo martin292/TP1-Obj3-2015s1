@@ -2,7 +2,7 @@ package juego
 
 import scala.collection.mutable.ListBuffer
 
-abstract class Celda extends AumentadorDeExperiencia{
+abstract class Celda extends AumentadorDeExperiencia with TableroDeComando{
 
   var x: Int
   var y: Int  

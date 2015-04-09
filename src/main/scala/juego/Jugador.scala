@@ -2,7 +2,7 @@ package juego
 
 import scala.collection.mutable.ListBuffer
 
-class Jugador extends AumentadorDeExperiencia{
+class Jugador extends AumentadorDeExperiencia with TableroDeComando {
   
   var opcion: Opcion = null
   var politica: Politica = null

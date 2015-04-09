@@ -9,8 +9,8 @@ trait AumentadorDeExperiencia {
   /**
    * Aumenta en 2 la experiencia de los personajes cuya energia es >= a 10
    */
-  def aumentarMasivamenteExperiencia(): Unit = {
-    this.personajes.foreach {p => if(p.energia >= 10){p.experiencia += 2}}
+  def aumentarMasivamenteExperiencia = {
+    this.personajes.foreach { p => if(p.energia >= 10){p.experiencia += 2}}
   }
     
   def nombre(): String

@@ -27,6 +27,7 @@ class AumentoMasivoExperienciaSpec extends FlatSpec with Matchers{
       var aumentadorCelda = new AumentoMasivoExperiencia(celda)
   }
   
+  
   "Ejecutar con Jugador" should "aumentar experiencia de p1 y p3" in{
     fixture.aumentadorJugador.ejecutar
         
