@@ -4,7 +4,7 @@ import scala.collection.mutable.ListBuffer
 
 trait TableroDeComando {
 
-  def personajes(): ListBuffer[Personaje]
+  def personajes(): ListBuffer[Personaje] 
   
   /**
    * Retorna cuántos personajes hay  
