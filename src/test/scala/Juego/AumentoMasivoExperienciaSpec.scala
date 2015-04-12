@@ -42,6 +42,8 @@ class AumentoMasivoExperienciaSpec extends FlatSpec with Matchers{
     fixture.p1.experiencia should be (2)
     fixture.p2.experiencia should be (0)
     fixture.p3.experiencia should be (2)
+    
+    fixture.aumentadorJugador.toString() should be ("Aumento masivo de experiencia sobre Jugador :  ejecutado")
   }
   
   "Con Celda" should "aumentar experiencia de p4 y p6" in{    
@@ -51,6 +53,8 @@ class AumentoMasivoExperienciaSpec extends FlatSpec with Matchers{
     fixture.p1.experiencia should be (2)
     fixture.p2.experiencia should be (0)
     fixture.p3.experiencia should be (2)
+    
+    fixture.aumentadorCelda.toString() should be ("Aumento masivo de experiencia sobre Celda :  ejecutado")
   }
   
   
