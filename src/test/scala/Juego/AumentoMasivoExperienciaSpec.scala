@@ -35,8 +35,7 @@ class AumentoMasivoExperienciaSpec extends FlatSpec with Matchers{
   }
   
   
-  "Ejecutar con Jugador" should "aumentar experiencia de p1 y p3" in{
-    
+  "Con Jugador" should "aumentar experiencia de p1 y p3" in{    
         
     fixture.aumentadorJugador.seEjecuto should be (true)
     
@@ -45,8 +44,7 @@ class AumentoMasivoExperienciaSpec extends FlatSpec with Matchers{
     fixture.p3.experiencia should be (2)
   }
   
-  "Ejecutar con Celda" should "aumentar experiencia de p1 y p3" in{
-    
+  "Con Celda" should "aumentar experiencia de p4 y p6" in{    
         
     fixture.aumentadorCelda.seEjecuto should be (true)
     
