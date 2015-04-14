@@ -31,22 +31,28 @@ class TableroDeComandoSpec extends FlatSpec with Matchers{
   }
   
   
-  def chequeoMasivo(algo: TableroDeComando, cantP: Int, medAtaque: Int, medDefensa: Int) = { 
+  def chequeoMasivo(algo: TableroDeComando, cantP: Int, densidad: Int, medAtaque: Int, medDefensa: Int) = { 
     assert(algo.cantidadDePersonajes() == cantP)
     assert(algo.medianaDeAtaque() == medAtaque)
     assert(algo.medianaDeDefensa() == medDefensa)
   }
     
   "ChequeoMasivo" should "Funcionar con jugador" in{
-    chequeoMasivo(fixture.jugador, 3, 13, 9)
+    chequeoMasivo(fixture.jugador, 3, 3, 13, 9)
   }
   
   "ChequeoMasivo" should "Funcionar con celda" in{
-    chequeoMasivo(fixture.celda, 3, 13, 9)
+    chequeoMasivo(fixture.celda, 3, 3, 13, 9)
   }
   
   "ChequeoMasivo" should "Funcionar con vecindad" in{
-    chequeoMasivo(fixture.vecindad, 3, 13, 9)
+    chequeoMasivo(fixture.vecindad, 3, 3, 13, 9)
+  }
+  
+  "queJugadoresTienenPersonaje" should "ser jugador" in{
+    fixture.jugador.queJugadoresTienenPersonaje().size should be (1)
+    fixture.celda.queJugadoresTienenPersonaje().size should be (1)
+    fixture.vecindad.queJugadoresTienenPersonaje().size should be (1)
   }
   
   "PersonajeConMayorExperiencia" should "ser p1" in{
