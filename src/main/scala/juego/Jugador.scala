@@ -6,6 +6,7 @@ class Jugador extends AumentadorDeExperiencia with TableroDeComando {
   
   var opcion: Opcion = null
   var politica: Politica = null
+  var personajes = ListBuffer[Personaje]()
   
   def nombre = "Jugador"
   

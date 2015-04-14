@@ -4,7 +4,7 @@ import scala.collection.mutable.ListBuffer
 
 trait AumentadorDeExperiencia {
 
-  var personajes = ListBuffer[Personaje]()
+  def personajes(): ListBuffer[Personaje]
   
   /**
    * Aumenta en 2 la experiencia de los personajes cuya energia es >= a 10
