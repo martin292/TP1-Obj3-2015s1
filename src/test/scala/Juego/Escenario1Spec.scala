@@ -3,7 +3,7 @@ package Juego
 import org.scalatest._
 import juego._
 
-class JuegoSpec extends FlatSpec with Matchers{
+class Escenario1Spec extends FlatSpec with Matchers{
 
   def fixture =
     new {

@@ -1,6 +1,6 @@
 package juego
 
-class Personaje(val jugador: Jugador, val energia: Int, val escudo: Int, var experiencia: Int) { 
+class Personaje(val jugador: Jugador, val energia: Int, var escudo: Int, var experiencia: Int) { 
   
   var celda: Celda = null
   
@@ -18,6 +18,5 @@ class Personaje(val jugador: Jugador, val energia: Int, val escudo: Int, var exp
   def defensa(): Int ={
     return escudo + (energia/10) + (experiencia/3)
   }
-    
-  
+      
 }
