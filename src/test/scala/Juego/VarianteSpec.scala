@@ -35,6 +35,9 @@ class VarianteSpec extends FlatSpec with Matchers{
       p3.items += item2
       p4.items += item1
       p4.items += item2
+      
+      p2.n = 50
+      p2.sumarCobertura()
       //
   }
   
@@ -43,9 +46,8 @@ class VarianteSpec extends FlatSpec with Matchers{
   }
   
   "Escudo de p2" should "ser igual a 10" in {
-    fixture.p2.n = 10
-    fixture.p2.sumarCobertura()
-    fixture.p2.escudo should be (10)
+    fixture.p2.n should be (50)
+    fixture.p2.escudo should be (8)
   }
   
   "Ataque y Defensa de p3" should "ser 13 y 8" in{    

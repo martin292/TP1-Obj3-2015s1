@@ -29,9 +29,9 @@ trait PoderGrupal extends Variante{
 trait CoberturaGlobal extends Variante{  
   this: Personaje =>
     var n: Int = 0
-  
+    
     def sumarCobertura() = { 
-      escudo = (n * sumatoriaDeExperiencia(this.jugador.personajes))/100 + escudo
+      this.escudo = (n * sumatoriaDeExperiencia(this.jugador.personajes))/100 + this.escudo
     }
       
     def sumatoriaDeExperiencia(lista: ListBuffer[Personaje]):Int ={
